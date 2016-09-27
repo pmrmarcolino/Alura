@@ -1,1 +1,1 @@
-# Alura
+# Alura course
