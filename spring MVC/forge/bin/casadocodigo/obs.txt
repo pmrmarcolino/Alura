@@ -1,0 +1,22 @@
+A grande vantagem de utilizar o JBoss Forge é agilizar a configuração inicial do projeto, 
+permitindo ganhar tempo indo direto para o código.
+O JBoss Forge é um gerador de projetos Java. Ele gera toda a estrutura base do projeto integrada com o Maven. 
+Configuração de dependências (bibliotecas e frameworks), estrutura de pastas e gera configurações iniciais 
+que geralmente envolve arquivos XML.
+
+Sem ele, em um projeto tipicamente Java EE, devemos criar vários arquivos XML na mão, por exemplo: 
+persistence.xml, web.xml, faces-config.xml, pom.xml, beans.xml entre outros.
+
+
+Comandos do terminal para criar o projeto pelo Jboss:
+Dentro da pasta do Jboss, acessar bin/forge, criando o projeto juntamente com o Maven
+$ project-new --named nome_do_projeto
+
+
+Diferença de scopos:
+
+O primeiro escopo apresentado é o escopo de aplicação, isto é, desde que o servidor é iniciado apenas um 
+objeto na memória é manipulado, o que causa conflito quando temos mais de um usuário usando a nossa aplicação. 
+O segundo escopo é o de sessão, no qual o objeto é criado para cada usuário que se conecta à aplicação, ou seja, 
+usuários diferentes usam objetos diferentes, o que é ideal para um carrinho de compras, uma vez que cada usuário possui o 
+seu próprio carrinho. O último escopo apresentado é o escopo de request, no qual cada vez que acessamos a página um objeto é criado.
