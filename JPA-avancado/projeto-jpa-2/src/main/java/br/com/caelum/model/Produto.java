@@ -1,4 +1,3 @@
-
 package br.com.caelum.model;
 
 import java.util.ArrayList;
@@ -15,106 +14,108 @@ import javax.persistence.Version;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Produto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @NotEmpty
-    private String nome;
-    @NotEmpty
-    private String linkDaFoto;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	@NotEmpty
+	private String nome;
+	@NotEmpty
+	private String linkDaFoto;
 
-    @Version
-    private int versao;
+	@NotEmpty
+	@Column(columnDefinition = "TEXT")
+	private String descricao;
 
-    @NotEmpty
-    @Column(columnDefinition = "TEXT")
-    private String descricao;
+	@Min(20)
+	private double preco;
 
-    @Min(20)
-    private double preco;
+	@Version
+	private Integer versao;
 
-    @ManyToMany
-    private List<Categoria> categorias = new ArrayList<>();
+	@ManyToMany
+	@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+	private List<Categoria> categorias = new ArrayList<>();
 
-    @Valid
-    @ManyToOne
-    private Loja loja;
+	@Valid
+	@ManyToOne
+	private Loja loja;
 
-    public String getDescricao() {
-        return descricao;
-    }
+	public String getDescricao() {
+		return descricao;
+	}
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
-    // método auxiliar para associar categorias com o produto
-    // se funcionar apos ter definido o relacionamento entre produto e categoria
-    // public void adicionarCategorias(Categoria... categorias) {
-    // for (Categoria categoria : categorias) {
-    // this.categorias.add(categoria);
-    // }
-    // }
+	public void adicionarCategorias(Categoria... categorias) {
+		for (Categoria categoria : categorias) {
+			this.categorias.add(categoria);
+		}
+	}
 
-    public String getLinkDaFoto() {
-        return linkDaFoto;
-    }
+	public String getLinkDaFoto() {
+		return linkDaFoto;
+	}
 
-    public double getPreco() {
-        return preco;
-    }
+	public double getPreco() {
+		return preco;
+	}
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
 
-    public List<Categoria> getCategorias() {
-        return categorias;
-    }
+	public void setLinkDaFoto(String linkDaFoto) {
+		this.linkDaFoto = linkDaFoto;
+	}
 
-    public void setCategorias(List<Categoria> categorias) {
-        this.categorias = categorias;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setLinkDaFoto(String linkDaFoto) {
-        this.linkDaFoto = linkDaFoto;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public int getVersao() {
-        return versao;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setVersao(int versao) {
-        this.versao = versao;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setLoja(Loja loja) {
+		this.loja = loja;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public Loja getLoja() {
+		return loja;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
 
-    public void setLoja(Loja loja) {
-        this.loja = loja;
-    }
+	public Integer getVersao() {
+		return versao;
+	}
 
-    public Loja getLoja() {
-        return loja;
-    }
+	public void setVersao(Integer versao) {
+		this.versao = versao;
+	}
 
 }
