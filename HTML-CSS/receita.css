@@ -1,0 +1,111 @@
+body{
+	background-color: #F5F0DC;
+	font-family: sans-serif, comic;
+	width: 940px;
+	margin: auto;
+}
+h2{
+	background-color: #B3A742;
+	background: -webkit-linear-gradient(top, #9C8F67, #C7BE9B); /*chrome, Da onde começa o degrade, primeira cor, ultima cor*/
+	background: -moz-linear-gradient(top, #9C8F67, #C7BE9B); /*mozila, Da onde começa o degrade, primeira cor, ultima cor*/
+	border-radius: 15px; /*arredondar*/
+	border: 1px solid black;
+	padding: 5px;
+	color: #FFFFFF;
+}
+
+/*Colocar os itens de nav na mesma linha, e com o espaçamento definido*/
+/* 
+nav ul li{
+	display: inline;
+	margin-right: 50px;
+}*/
+
+nav{
+	float: left;
+	width: 200px;
+}
+
+nav ul li{
+	background-color: #C7BE9B;
+	margin-bottom: 3px;
+}
+
+nav ul li:hover{
+    background-color:#9C8F67;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+nav ul{
+	list-style: none;
+	padding-left: 0;
+}
+
+figure{
+    background-color:white;
+    width:200px;
+    text-align: center;
+    padding:15px;
+    font-family:'Comic Sans MS',cursive;
+    border:1px solid black;
+    box-shadow:5px 5px 3px rgba(0,0,0,0.7); /*efeito de sombra na imagem: horizontal, vertical, espessurra, cor(,,,opacidade)*/
+}
+
+/*Hover: evento de mouse*/
+figure:hover{
+	-webkit-transform:rotate(+5deg);
+}
+/*Decorar os links*/
+a{
+    color:blue;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+#tb-nutrientes{
+	width: 60%;
+	margin: auto;
+	border: 1px solid black;
+}
+
+/*Efeito zebrado na tabela*/ 
+#tb-nutrientes tr:nth-child(odd){
+	background-color: #FFFFFF;
+}
+
+#tb-nutrientes tr:nth-child(even){
+	background-color: #F8EAB3;
+}
+
+#tb-nutrientes th{
+	background-color: #FFFFFF;
+}
+
+#topo{
+	text-align: center;
+}
+
+#conteudo{
+	width: 740px;
+	float: right;
+}
+
+#banner{
+	top: 0;
+	right: 0;
+	position: fixed;
+	background-color: #F5F0DC;
+	width: 300px;
+}
+
+#titulo{
+	text-align: center;
+}
+
+
