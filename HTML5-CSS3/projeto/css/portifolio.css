@@ -1,0 +1,30 @@
+.portfolio li {
+    display: inline-block;
+    border: 8px solid black;
+    background-color: #FAFFFC;
+    width: 45%;
+    box-sizing: border-box;
+    padding: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+.portfolio img {
+    width: 100%;
+}
+
+.bmw{
+	background-image: url(img/bmw.png);
+}
+
+.g1{
+	background-image: url(img/g1.png);
+}
+
+.ibm{
+	background-image: url(img/ibm.png);
+}
+
+.uol{
+	background-image: url(img/uol.png);
+}
