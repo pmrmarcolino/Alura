@@ -1,0 +1,1 @@
+Essas variaveis dentro de ${} são controladores do MVC, que são mandadas para o JSP
