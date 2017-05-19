@@ -1,6 +1,8 @@
 package br.com.caelum.leilao.teste;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matcher.*;
 
 import java.util.List;
 
@@ -83,10 +85,11 @@ public class TesteDoAvaliador {
 				.lance(joao, 250.0).lance(joao, 1000.0).lance(joao, 120.0).controi();
 
 		leiloeiro.avalia(leilao);
-
+		
 		assertEquals(10, leiloeiro.getMenorLance(), 0.00001);
 		assertEquals(1000.0, leiloeiro.getMaiorLance(), 0.00001);
 	}
+
 
 	@Test
 	public void deveEncontrarOsTresMaioresTestes() {
@@ -108,8 +111,12 @@ public class TesteDoAvaliador {
 	@Test
 	public void deveEncontrarOrdemDecrescente() {
 
-		Leilao leilao = new CriadorDeLeilao().para("PS3").lance(joao, 100.0).lance(joao, 200.0).lance(joao, 300.0)
-				.lance(joao, 400.0).controi();
+		Leilao leilao = new CriadorDeLeilao().para("PS3")
+				.lance(joao, 100.0)
+				.lance(joao, 200.0)
+				.lance(joao, 300.0)
+				.lance(joao, 400.0)
+				.controi();
 
 		leiloeiro.avalia(leilao);
 
